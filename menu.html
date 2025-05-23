@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Grup 'N' Go</title>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 40px;
+            padding: 20px;
+        }
+        /* Unique Background */
+body {
+    background: linear-gradient(to right, #2C3E50, #4CA1AF);
+    color: white;
+}
+
+/* Menu Item Hover Effect */
+.menu-list li {
+    position: relative;
+}
+
+.menu-list li:hover::after {
+    content: attr(data-description);
+    position: absolute;
+    left: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+}
+/* Category Box Styling */
+.menu-list h2 {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 15px;
+}
+
+/* Glowing Border Effect */
+.menu-list h2::before, .menu-list h2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.menu-list h2:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ffcc00;
+}
+
+.menu-list h2:hover::before, .menu-list h2:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff6600;
+    animation: glow-animation 1s infinite alternate;
+}
+
+/* Light Pulse Animation */
+@keyframes glow-animation {
+    0% {
+        box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff6600;
+    }
+    100% {
+        box-shadow: 0 0 25px #ffcc00, 0 0 40px #ff6600;
+    }
+}
+
+/* Styled Box for Menu Items */
+.menu-list li {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffcc00; /* Gold Border */
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Hover Effect with Glow */
+.menu-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff6600;
+    transform: scale(1.05);
+}
+
+/* Inner Glow Animation */
+.menu-list li::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    animation: glow-border 1.5s infinite alternate;
+}
+
+/* Glowing Border Animation */
+@keyframes glow-border {
+    0% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 10px #ffcc00;
+    }
+    100% {
+        border-color: #ff6600;
+        box-shadow: 0 0 20px #ff6600;
+    }
+}
+
+
+        .menu-display {
+            width: 350px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .menu-display img {
+            width: 270px;
+            height: 270px;
+            border-radius: 10px;
+            display: block;
+        }
+        .menu-display h2 {
+            margin-top: 10px;
+            color: #ff5177;
+            font-size: 1.5em;
+        }
+        .menu-description {
+            font-size: 1em;
+            color: #444;
+            margin-top: 10px;
+        }
+        .show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Our Menu</h1>
+    
+    <div class="container">
+        <div class="menu-list">
+            <ul id="menuItems">
+                <h2>Starters</h2>
+                <li onclick="showItem('Dragon Chicken', 'https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600')">Dragon Chicken</li>
+                <li onclick="showItem('Chicken 65', 'https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=600')">Chicken 65</li>
+                <li onclick="showItem('Chicken Manchurian', 'https://images.pexels.com/photos/5339079/pexels-photo-5339079.jpeg?auto=compress&cs=tinysrgb&w=600')">Chicken Manchurian</li>
+                <li onclick="showItem('Chicken Lollipop', 'https://images.pexels.com/photos/29631422/pexels-photo-29631422/free-photo-of-crispy-chicken-lollipops-with-spicy-dip.jpeg?auto=compress&cs=tinysrgb&w=600')">Chicken Lollipop</li>
+                <h2>Snacks</h2>
+                <li onclick="showItem('Burger', 'https://images.pexels.com/photos/1025804/pexels-photo-1025804.jpeg?auto=compress&cs=tinysrgb&w=600')">Burger</li>
+                <li onclick="showItem('Pasta', 'https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600')">Pasta</li>
+                <li onclick="showItem('Pizza', 'https://media.istockphoto.com/id/187248625/photo/pepperoni-pizza.jpg?s=2048x2048&w=is&k=20&c=KWdxgdyv_fRDh8i8D5LToxbKpcRrNJ0iVCmQZ8LFoAY=')">Pizza</li>
+                <li onclick="showItem('Tacos', 'https://images.pexels.com/photos/8448236/pexels-photo-8448236.jpeg?auto=compress&cs=tinysrgb&w=600')">Tacos</li>
+                <h2>Chicken</h2>
+                <li onclick="showItem('Chicken Biryani', 'https://media.istockphoto.com/id/911932880/photo/hot-delicious-chicken-biryani.jpg?s=1024x1024&w=is&k=20&c=-bSOcs6ltw1BpiMlAByq5Ri-E18yiOAoNyc28Km9c74=')">Chicken Biryani</li>
+                <li onclick="showItem('Butter Naan', 'https://media.istockphoto.com/id/1429997819/photo/indian-naan-bread.jpg?s=2048x2048&w=is&k=20&c=rewFbAr31SrzQjTGo6bw8uc-uCKie3FFoIpnqIS1PiY=')">Butter Naan</li>
+                <li onclick="showItem('Chicken Mandi', 'https://media.istockphoto.com/id/1290055916/photo/one-pan-chicken-and-rice-in-a-skillet.jpg?s=2048x2048&w=is&k=20&c=KTZXFbQ6cud7sQcbAY7wbcWgBBNes4vr7gEK1TwvCX4=')">Chicken Mandi</li>
+                <li onclick="showItem('Prawns', 'https://images.pexels.com/photos/11743998/pexels-photo-11743998.jpeg?auto=compress&cs=tinysrgb&w=600')">Prawns Biryani</li>
+                <li onclick="showItem('Chicken 65 Biryani', 'https://images.pexels.com/photos/27521304/pexels-photo-27521304/free-photo-of-person-cutting-meat.png?auto=compress&cs=tinysrgb&w=600')">Chicken 65 Biryani</li>
+                <li onclick="showItem('Chicken Masalas', 'https://media.istockphoto.com/id/673858790/photo/butter-chicken-curry-with-tender-chicken-breast-cream-butter-honey.jpg?s=2048x2048&w=is&k=20&c=1fejREV0k6LKqMNo1pgD4LJjWRNrC5qF9FEsrLhQ6R4=')">Chicken Masala</li>
+                <li onclick="showItem('Chicken Handi', 'https://images.pexels.com/photos/17650171/pexels-photo-17650171/free-photo-of-meal-with-meat-and-rice.jpeg?auto=compress&cs=tinysrgb&w=600')">Chicken Handi</li>
+                <li onclick="showItem('Kadai Chicken', 'https://images.pexels.com/photos/9609840/pexels-photo-9609840.jpeg?auto=compress&cs=tinysrgb&w=600')">Kadai Chicken</li>
+                <li onclick="showItem('Chicken Hyderabadi', 'https://media.istockphoto.com/id/1292438529/photo/traditional-hyderabadi-chicken-dum-biryani-made-of-basmati-rice-cooked-with-masala-spices.jpg?s=2048x2048&w=is&k=20&c=ka255Q2njFTZ0VnlffHJ_dz4GKkuGIZ-fA3dyddlor8=')">Chicken Hyderabadi</li>
+                <li onclick="showItem('Chicken Tikka Masala', 'https://media.istockphoto.com/id/922784286/photo/chicken-tikka-masala-indian-recipe-food.jpg?s=2048x2048&w=is&k=20&c=9lDf135v4JBEy3sVRmqQM3uaobSgWNf0KbPtZumhbd4=')">Chicken Tikka Masala</li>
+                <li onclick="showItem('Butter chicken Masala', https://media.istockphoto.com/id/2163955993/photo/indian-spiced-fish-curry-salmon-masala-top-view.jpg?s=2048x2048&w=is&k=20&c=7tWrAP_Fp5clAkAo5r-45SiyGnk0AWN1UgLz0ac3wmA=')">Butter chicken Masala</li>
+                <li onclick="showItem('Chilli Chicken', 'https://media.istockphoto.com/id/901083158/photo/hot-and-spicy-chinese-chicken-dish.jpg?b=1&s=612x612&w=0&k=20&c=Ox_PwZaD05Ib5R_DAV0XlFSyjY8mblJwQaedUP1TuRc=')">Chilli Chicken</li>
+                <li onclick="showItem('Chicken Hot garlic', 'https://images.pexels.com/photos/8448236/pexels-photo-8448236.jpeg?auto=compress&cs=tinysrgb&w=600')">Chicken Hot garlic</li>
+                <li onclick="showItem('Chicken Schezwana', 'https://media.istockphoto.com/id/2181888429/photo/tasty-chow-mein-fried-rice-with-chicken-momos.jpg?b=1&s=612x612&w=0&k=20&c=YfPZnKbRVNeSqMIh_t1Zu1hsqIw9zLnk7Y_riEEKLK0=')">Chicken Schezwana</li>
+                <h2>Mutton</h2>
+                <li onclick="showItem('Mutton Masala', 'https://media.istockphoto.com/id/1253934130/photo/mutton-masala-curry-in-plastic-container-for-home-delivery.jpg?b=1&s=612x612&w=0&k=20&c=XfIhh3nnTLD78qes8RTu3JzFPa2-7E_BWMTt60QbxzY=')">Mutton Masala</li>
+                <li onclick="showItem('Mutton Handi', 'https://images.pexels.com/photos/16229982/pexels-photo-16229982/free-photo-of-mutton-matka-biryani-or-mutton-handi-biryani-famous-indian-restaurant-main-course-menu-dish.jpeg?auto=compress&cs=tinysrgb&w=600')">Mutton Handi</li>
+                <li onclick="showItem('Mutton Kadai', 'https://images.pexels.com/photos/29685045/pexels-photo-29685045/free-photo-of-spicy-indian-lamb-curry-in-brass-handi.jpeg?auto=compress&cs=tinysrgb&w=600')">Mutton Kadai</li>
+                <li onclick="showItem('Mutton Biryani', 'https://images.pexels.com/photos/18698231/pexels-photo-18698231/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=600')">Mutton Biryani</li>
+    <h2>Rice and Noodles</h2>
+    <li onclick="showItem('Jeera Rice', 'https://images.pexels.com/photos/28674713/pexels-photo-28674713/free-photo-of-delicious-indian-jeera-rice-in-ladle.jpeg?auto=compress&cs=tinysrgb&w=600')">Jeera Rice</li>
+    <li onclick="showItem('Mix Veg Pulao', 'https://media.istockphoto.com/id/1222031603/photo/veg-pulao-with-paneer-tikka-masala-and-lachha-paratha.jpg?b=1&s=612x612&w=0&k=20&c=6mzbN9eAhfqaJ4BxlI0decfJer0EYSthorZSCYVVJhE=')">Mix Veg Pulao</li>
+    <li onclick="showItem('Veg biryani', 'https://media.istockphoto.com/id/1292442851/photo/traditional-hyderabadi-vegetable-veg-dum-biryani-with-mixed-veggies-served-with-mixed-raita.jpg?b=1&s=612x612&w=0&k=20&c=8KD-skFM5eSJZKmW1V9wBAP22WMAGBNrXpf5E2ph5C4=')">Veg biryani</li>
+    <li onclick="showItem('Veg Fried Rice', 'https://media.istockphoto.com/id/1292617507/photo/tasty-veg-schezwan-fried-rice-served-in-bowl-over-a-rustic-wooden-background-indian-cuisine.jpg?b=1&s=612x612&w=0&k=20&c=Hp7HKeDw9hl4r48EYSkdl_NbycQZc7gpQbFRUN2xKD4=')">Veg Fried Rice</li>
+    <li onclick="showItem('Veg Hakka Noodles', 'https://media.istockphoto.com/id/1292637257/photo/veg-hakka-noodles-a-popular-oriental-dish-made-with-noodles-and-vegetables-served-over-a.jpg?b=1&s=612x612&w=0&k=20&c=dhhQGvN90m1y_28miVhIMugazwTwfM3u0W3S1i7CY-8=')">Veg Hakka Noodles</li>
+<h2>Desserts</h2>
+<li onclick="showItem('Hot chocholate', 'https://media.istockphoto.com/id/1367888436/photo/mug-of-a-fragrant-hot-chocolate-or-coffee-with-marshmallows.jpg?b=1&s=612x612&w=0&k=20&c=l1PcNrdqqHUyeFF_82lK5SHUYr3YtdDpkyyP_2AlzfI=')">Hot chocholate</li>
+<li onclick="showItem('Cold coffee', 'https://images.pexels.com/photos/2615323/pexels-photo-2615323.jpeg?auto=compress&cs=tinysrgb&w=600')">Cold coffee</li>
+<li onclick="showItem('Browine', 'https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600')">Browine</li>
+<li onclick="showItem('Donut', 'https://images.pexels.com/photos/4686958/pexels-photo-4686958.jpeg?auto=compress&cs=tinysrgb&w=600')">Donut</li>
+<li onclick="showItem('Fruit cake', 'https://images.pexels.com/photos/29547136/pexels-photo-29547136/free-photo-of-vibrant-citrus-cake-with-pomegranate-garnish.jpeg?auto=compress&cs=tinysrgb&w=600')">Fruit cake</li>
+<li onclick="showItem('Croissant', 'https://media.istockphoto.com/id/1001971972/photo/breakfast-with-croissants-coffee-orange-juice-and-berries.jpg?b=1&s=612x612&w=0&k=20&c=EBa_Qz-djd9oR-q05TaEEhvm6JDfPJ7Qq-HNyT53Cck=')">Croissant</li>
+<li onclick="showItem('Churros', 'https://media.istockphoto.com/id/865434704/photo/churros-with-sugar-and-chocolate-sauce.jpg?b=1&s=612x612&w=0&k=20&c=sAoI__V1XqL6HlAIZ9zIKXsF0IGAFCLqxqc8-lQ1-x0=')">Churros</li>
+
+            </ul>
+            
+        </div>
+
+        <div id="menuDisplay" class="menu-display">
+            <img id="displayImage" src="" alt="">
+            <h2 id="displayText">Click an item to see the image</h2>
+            <p id="displayDescription" class="menu-description"> </p>
+        </div>
+    </div>
+
+    <script>
+        const descriptions = {
+            "Dragon Chicken": "Spicy, crispy chicken tossed in a tangy and flavorful sauce.",
+            "Chicken 65": "A fiery South Indian delicacy with deep-fried, marinated chicken pieces.",
+            "Chicken Manchurian": "A fusion Indo-Chinese dish with a savory, garlicky sauce.",
+            "Chicken Lollipop": "Crispy fried chicken wings served with spicy dipping sauce.",
+            "Burger": "Juicy grilled patty with fresh lettuce, cheese, and special sauce.",
+            "Pasta": "Delicious creamy or tangy pasta served with herbs and cheese.",
+            "Pizza": "Classic Italian delight topped with gooey cheese and fresh toppings."
+        };
+
+        document.querySelectorAll('.menu-list li').forEach(item => {
+    item.addEventListener('mouseenter', function () {
+        let display = document.getElementById('menuDisplay');
+        let image = document.getElementById('displayImage');
+        let text = document.getElementById('displayText');
+        let description = document.getElementById('displayDescription');
+
+        let name = this.textContent;
+        let imageUrl = this.getAttribute('onclick').match(/'(.*?)'/g)[1].replace(/'/g, "");
+
+        image.src = imageUrl;
+        text.textContent = name;
+        description.textContent = descriptions[name] || "A delicious item from our menu!";
+
+        display.classList.add('show');
+    });
+});
+
+    </script>
+
+</body>
+</html>

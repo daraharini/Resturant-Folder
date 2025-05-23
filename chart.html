@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grup 'N' Go - Chart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🔹 Navigation Tabs -->
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('items')">Items</button>
+        <button onclick="showSection('chart')">Chart</button>
+    </nav>
+
+    <!-- 🔹 Items Section -->
+    <section id="items" class="section">
+        <h2>Select Your Items</h2>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/1025804/pexels-photo-1025804.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Burger">
+            <h3>Burger - $5.99</h3>
+            <button class="add-to-cart" data-name="Burger" data-price="5.99">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/187248625/photo/pepperoni-pizza.jpg?s=2048x2048&w=is&k=20&c=KWdxgdyv_fRDh8i8D5LToxbKpcRrNJ0iVCmQZ8LFoAY=" alt="Pizza">
+            <h3>Pizza - 8.99</h3>
+            <button class="add-to-cart" data-name="Pizza" data-price="8.99">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pasta">
+            <h3>Pasta - $7.49</h3>
+            <button class="add-to-cart" data-name="Pasta" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/8448236/pexels-photo-8448236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tacos">
+            <h3>Tacos - $7.49</h3>
+            <button class="add-to-cart" data-name="Tacos" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dragon Chicken">
+            <h3>Dragon Chicken - $7.49</h3>
+            <button class="add-to-cart" data-name="Dragon Chicken" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chicken 65">
+            <h3>Chicken 65 - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken 65" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/5339079/pexels-photo-5339079.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chicken Manchurian">
+            <h3>Chicken Manchurian - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Manchurian" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/29631422/pexels-photo-29631422/free-photo-of-crispy-chicken-lollipops-with-spicy-dip.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chicken Lollipop">
+            <h3>Chicken Lollipop - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Lollipop" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/911932880/photo/hot-delicious-chicken-biryani.jpg?s=1024x1024&w=is&k=20&c=-bSOcs6ltw1BpiMlAByq5Ri-E18yiOAoNyc28Km9c74=" alt="Chicken Biryani">
+            <h3>Chicken Biryani - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Biryani" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/1429997819/photo/indian-naan-bread.jpg?s=2048x2048&w=is&k=20&c=rewFbAr31SrzQjTGo6bw8uc-uCKie3FFoIpnqIS1PiY=" alt="Butter Naan">
+            <h3>Butter Naan - $7.49</h3>
+            <button class="add-to-cart" data-name="Butter Naan" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/1290055916/photo/one-pan-chicken-and-rice-in-a-skillet.jpg?s=2048x2048&w=is&k=20&c=KTZXFbQ6cud7sQcbAY7wbcWgBBNes4vr7gEK1TwvCX4=" alt="Chicken Mandi">
+            <h3>Chicken Mandi- $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Mandi" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/11743998/pexels-photo-11743998.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Prawns Biryani">
+            <h3>Prawns Biryani - $7.49</h3>
+            <button class="add-to-cart" data-name="Prawns Biryani" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chicken 65 Biryani">
+            <h3>Chicken 65 Biryani - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken 65 Biryani" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/673858790/photo/butter-chicken-curry-with-tender-chicken-breast-cream-butter-honey.jpg?s=2048x2048&w=is&k=20&c=1fejREV0k6LKqMNo1pgD4LJjWRNrC5qF9FEsrLhQ6R4=" alt="Chicken Masalas">
+            <h3>Chicken Masalas- $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Masalas" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/17650171/pexels-photo-17650171/free-photo-of-meal-with-meat-and-rice.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chicken Handi">
+            <h3>Chicken Handi - $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Handi" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/9609840/pexels-photo-9609840.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kadai Chicken">
+            <h3>Kadai Chicken- $7.49</h3>
+            <button class="add-to-cart" data-name="Kadai Chicken" data-price="7.49">Add to Cart</button>
+        </div>
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/922784286/photo/chicken-tikka-masala-indian-recipe-food.jpg?s=2048x2048&w=is&k=20&c=9lDf135v4JBEy3sVRmqQM3uaobSgWNf0KbPtZumhbd4=" alt="Chicken Tikka Masala">
+            <h3>Chicken Tikka Masala- $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Tikka Masala" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/2163955993/photo/indian-spiced-fish-curry-salmon-masala-top-view.jpg?s=2048x2048&w=is&k=20&c=7tWrAP_Fp5clAkAo5r-45SiyGnk0AWN1UgLz0ac3wmA=" alt="Butter chicken Masala">
+            <h3>Butter chicken Masala- $7.49</h3>
+            <button class="add-to-cart" data-name="Butter chicken Masala" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/901083158/photo/hot-and-spicy-chinese-chicken-dish.jpg?b=1&s=612x612&w=0&k=20&c=Ox_PwZaD05Ib5R_DAV0XlFSyjY8mblJwQaedUP1TuRc=" alt="Chilli Chicken">
+            <h3>Chilli Chicken- $7.49</h3>
+            <button class="add-to-cart" data-name="Chilli Chicken" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/2181888429/photo/tasty-chow-mein-fried-rice-with-chicken-momos.jpg?b=1&s=612x612&w=0&k=20&c=YfPZnKbRVNeSqMIh_t1Zu1hsqIw9zLnk7Y_riEEKLK0=" alt="Chicken Schezwana">
+            <h3>Chicken Schezwana- $7.49</h3>
+            <button class="add-to-cart" data-name="Chicken Schezwana" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/1253934130/photo/mutton-masala-curry-in-plastic-container-for-home-delivery.jpg?b=1&s=612x612&w=0&k=20&c=XfIhh3nnTLD78qes8RTu3JzFPa2-7E_BWMTt60QbxzY=" alt="Mutton Masala">
+            <h3>Mutton Masala- $7.49</h3>
+            <button class="add-to-cart" data-name="Mutton Masala" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/29685045/pexels-photo-29685045/free-photo-of-spicy-indian-lamb-curry-in-brass-handi.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mutton Kadai">
+            <h3>Mutton Kadai- $7.49</h3>
+            <button class="add-to-cart" data-name="Mutton Kadai" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/18698231/pexels-photo-18698231/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=600tps://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mutton Biryani">
+            <h3>Mutton Biryani- $7.49</h3>
+            <button class="add-to-cart" data-name="Mutton Biryani" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600https://images.pexels.com/photos/28674713/pexels-photo-28674713/free-photo-of-delicious-indian-jeera-rice-in-ladle.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Jeera Rice">
+            <h3>Jeera Rice- $7.49</h3>
+            <button class="add-to-cart" data-name="Jeera Rice" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        <div class="food-item">
+            <img src="https://media.istockphoto.com/id/1222031603/photo/veg-pulao-with-paneer-tikka-masala-and-lachha-paratha.jpg?b=1&s=612x612&w=0&k=20&c=6mzbN9eAhfqaJ4BxlI0decfJer0EYSthorZSCYVVJhE=" alt="Mix Veg Pulao">
+            <h3>Mix Veg Pulao- $7.49</h3>
+            <button class="add-to-cart" data-name="Mix Veg Pulao" data-price="7.49">Add to Cart</button>
+        </div>
+        
+        
+    </section>
+
+    <!-- 🔹 Chart Section -->
+    <section id="chart" class="section">
+        <h2>Your Cart</h2>
+        <div id="chart-section"></div>
+        <h3 id="total-amount">Total: $0.00</h3>
+        <button id="checkout-btn">Proceed to Payment</button>
+        <button id="proceed-to-payment">Proceed to Payment</button>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

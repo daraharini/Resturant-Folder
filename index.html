@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grap 'N' Go - Fresh & Fast</title>
+    
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Hero Section with Video Slider */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: white;
+        }
+
+        /* Border Animations */
+        .left-border, .right-border {
+            position: absolute;
+            width: 300px;
+            height: auto;
+            padding: 15px;
+            color: white;
+            background: rgba(255, 69, 0, 0.9);
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        .left-border {
+            left: 5%;
+            bottom: 0;
+            animation: slideUp 2s ease-out forwards;
+        }
+
+        .right-border {
+            right: 5%;
+            bottom: 0;
+            animation: slideUp 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes slideUp {
+            from { bottom: -100px; opacity: 0; }
+            to { bottom: 50%; opacity: 1; }
+        }
+         /* Smooth Border Animation */
+         @keyframes leftBorderAnimation {
+            from { height: 0; }
+            to { height: 100%; }
+        }
+
+        @keyframes rightBorderAnimation {
+            from { height: 0; }
+            to { height: 100%; }
+        }
+
+        .left-border, .right-border {
+            position: absolute;
+            width: 200px;
+            background: rgba(196, 170, 161, 0.8);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+         
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/10422722.png" alt="Grup 'N' Go Logo" width="90">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="items.html">Items</a></li>
+                <li><a href="chart.html">Chart Items</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <video autoplay loop muted>
+            <source src="videos/vecteezy_ai-generative-a-balcony-with-a-table-and-chairs-in-the-rain_34611208.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Welcome to Grup 'N' Go</h1>
+            <p>Fast. Fresh. Delicious.</p>
+        </div>
+        <div class="left-border">Welcome! Choose your item to die the hunger.
+            <br>Eat which preferce Your mood.
+        </div>
+        <div class="right-border">Satisfy your cravings with the best flavors!
+            <br>Choose the Best Item
+        </div>
+       
+        
+   
+    </section>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+        }
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .item {
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px yellow;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px red;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .add { background: green; color: white; }
+        .add:hover { background: lime; }
+        .remove { background: red; color: white; }
+        .remove:hover { background: darkred; }
+        .cart {
+            position: fixed;
+            right: 20px;
+            top: 50px;
+            padding: 20px;
+            background: #444;
+            border-radius: 10px;
+            box-shadow: 0 0 10px cyan;
+        }
+        .cart-message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: yellow;
+            display: none;
+        }
+        .go-to-cart {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        .go-to-cart:hover { background: darkblue; }
+    </style>
+</head>
+<body>
+    <h1>Food Items</h1>
+    <div class="items-container" id="items"></div>
+    <div class="cart" id="cart">
+        <h2>Cart Total: ₹<span id="total">0</span></h2>
+    </div>
+    <p class="cart-message" id="cart-message">Item added to cart!</p>
+    
+    <button class="go-to-cart" id="go-to-cart" onclick="redirectToCart()">Go to Cart</button>
+
+    <script>
+        const foodItems = [
+        { name: 'Pizza', price: 100, image: 'https://media.istockphoto.com/id/187248625/photo/pepperoni-pizza.jpg?s=2048x2048&w=is&k=20&c=KWdxgdyv_fRDh8i8D5LToxbKpcRrNJ0iVCmQZ8LFoAY=' },
+            { name: 'Burger', price: 75, image: 'https://images.pexels.com/photos/1025804/pexels-photo-1025804.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Pasta', price: 150, image: 'https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Tacos', price: 120, image: 'https://images.pexels.com/photos/8448236/pexels-photo-8448236.jpeg?auto=compress&cs=tinysrgb&w=600' },
+           
+            { name: 'Dragon Chicken', price: 155, image: 'https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken 65', price: 180, image: 'https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken Manchurian', price: 188, image: 'https://images.pexels.com/photos/5339079/pexels-photo-5339079.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken Lollipop', price: 200, image: 'https://images.pexels.com/photos/29631422/pexels-photo-29631422/free-photo-of-crispy-chicken-lollipops-with-spicy-dip.jpeg?auto=compress&cs=tinysrgb&w=600' },
+           
+            { name: 'Chicken Biryani', price: 380, image: 'https://media.istockphoto.com/id/911932880/photo/hot-delicious-chicken-biryani.jpg?s=1024x1024&w=is&k=20&c=-bSOcs6ltw1BpiMlAByq5Ri-E18yiOAoNyc28Km9c74=' },
+            { name: 'Butter Naan', price: 15  , image: 'https://media.istockphoto.com/id/1429997819/photo/indian-naan-bread.jpg?s=2048x2048&w=is&k=20&c=rewFbAr31SrzQjTGo6bw8uc-uCKie3FFoIpnqIS1PiY=' },
+            { name: 'Chicken Mandi', price: 380 , image: 'https://media.istockphoto.com/id/1290055916/photo/one-pan-chicken-and-rice-in-a-skillet.jpg?s=2048x2048&w=is&k=20&c=KTZXFbQ6cud7sQcbAY7wbcWgBBNes4vr7gEK1TwvCX4=' },
+            { name: 'Prawns Biryani', price: 250, image: 'https://images.pexels.com/photos/11743998/pexels-photo-11743998.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken 65 Biryani', price: 350, image: 'https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken Masalas', price: 145, image: 'https://media.istockphoto.com/id/673858790/photo/butter-chicken-curry-with-tender-chicken-breast-cream-butter-honey.jpg?s=2048x2048&w=is&k=20&c=1fejREV0k6LKqMNo1pgD4LJjWRNrC5qF9FEsrLhQ6R4=' },
+            { name: 'Chicken Handi', price: 250, image: 'https://images.pexels.com/photos/17650171/pexels-photo-17650171/free-photo-of-meal-with-meat-and-rice.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Kadai Chicken', price: 260, image: 'https://images.pexels.com/photos/9609840/pexels-photo-9609840.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken Hyderabadi', price: 300, image: 'https://media.istockphoto.com/id/1292438529/photo/traditional-hyderabadi-chicken-dum-biryani-made-of-basmati-rice-cooked-with-masala-spices.jpg?s=2048x2048&w=is&k=20&c=ka255Q2njFTZ0VnlffHJ_dz4GKkuGIZ-fA3dyddlor8=' },
+            { name: 'Chicken Tikka Masala', price: 307, image: 'https://media.istockphoto.com/id/922784286/photo/chicken-tikka-masala-indian-recipe-food.jpg?s=2048x2048&w=is&k=20&c=9lDf135v4JBEy3sVRmqQM3uaobSgWNf0KbPtZumhbd4=' },
+            { name: 'Butter chicken Masala', price: 388, image: 'https://media.istockphoto.com/id/2163955993/photo/indian-spiced-fish-curry-salmon-masala-top-view.jpg?s=2048x2048&w=is&k=20&c=7tWrAP_Fp5clAkAo5r-45SiyGnk0AWN1UgLz0ac3wmA=' },
+            { name: 'Chilli Chicken', price: 200 , image: 'https://media.istockphoto.com/id/901083158/photo/hot-and-spicy-chinese-chicken-dish.jpg?b=1&s=612x612&w=0&k=20&c=Ox_PwZaD05Ib5R_DAV0XlFSyjY8mblJwQaedUP1TuRc=' },
+            { name: 'Chicken Hot garlic', price: 28, image: 'https://images.pexels.com/photos/8448236/pexels-photo-8448236.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Chicken Schezwana', price: 188, image: 'https://media.istockphoto.com/id/2181888429/photo/tasty-chow-mein-fried-rice-with-chicken-momos.jpg?b=1&s=612x612&w=0&k=20&c=YfPZnKbRVNeSqMIh_t1Zu1hsqIw9zLnk7Y_riEEKLK0=' },
+          
+            { name: 'Mutton Masala', price: 188, image: 'https://media.istockphoto.com/id/1253934130/photo/mutton-masala-curry-in-plastic-container-for-home-delivery.jpg?b=1&s=612x612&w=0&k=20&c=XfIhh3nnTLD78qes8RTu3JzFPa2-7E_BWMTt60QbxzY=' },
+            { name: 'Mutton Handi', price: 298, image: 'https://images.pexels.com/photos/16229982/pexels-photo-16229982/free-photo-of-mutton-matka-biryani-or-mutton-handi-biryani-famous-indian-restaurant-main-course-menu-dish.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Mutton Kadai', price: 298, image: 'https://images.pexels.com/photos/29685045/pexels-photo-29685045/free-photo-of-spicy-indian-lamb-curry-in-brass-handi.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Mutton Biryani', price: 538, image: 'https://images.pexels.com/photos/18698231/pexels-photo-18698231/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=600tps://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600' },
+           
+            { name: 'Jeera Rice', price: 100, image: 'https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600https://images.pexels.com/photos/28674713/pexels-photo-28674713/free-photo-of-delicious-indian-jeera-rice-in-ladle.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Mix Veg Pulao', price: 120, image: 'https://media.istockphoto.com/id/1222031603/photo/veg-pulao-with-paneer-tikka-masala-and-lachha-paratha.jpg?b=1&s=612x612&w=0&k=20&c=6mzbN9eAhfqaJ4BxlI0decfJer0EYSthorZSCYVVJhE=' },
+            { name: 'Veg biryani', price: 250, image: 'https://images.pexels.com/photos/1460872/pexels-photo-1460872.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Veg Fried Rice', price: 199, image: 'https://media.istockphoto.com/id/1292617507/photo/tasty-veg-schezwan-fried-rice-served-in-bowl-over-a-rustic-wooden-background-indian-cuisine.jpg?b=1&s=612x612&w=0&k=20&c=Hp7HKeDw9hl4r48EYSkdl_NbycQZc7gpQbFRUN2xKD4=' },
+            { name: 'Veg Hakka Noodles', price: 197, image: 'https://media.istockphoto.com/id/1292637257/photo/veg-hakka-noodles-a-popular-oriental-dish-made-with-noodles-and-vegetables-served-over-a.jpg?b=1&s=612x612&w=0&k=20&c=dhhQGvN90m1y_28miVhIMugazwTwfM3u0W3S1i7CY-8=' },
+            
+            { name: 'Hot chocholate', price: 188, image: 'https://media.istockphoto.com/id/1367888436/photo/mug-of-a-fragrant-hot-chocolate-or-coffee-with-marshmallows.jpg?b=1&s=612x612&w=0&k=20&c=l1PcNrdqqHUyeFF_82lK5SHUYr3YtdDpkyyP_2AlzfI=' },
+            { name: 'Cold coffee', price: 150, image: 'https://images.pexels.com/photos/2615323/pexels-photo-2615323.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Browine', price: 78, image: 'https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Donut', price: 88, image: 'https://images.pexels.com/photos/4686958/pexels-photo-4686958.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Fruit cake', price: 25, image: 'https://images.pexels.com/photos/29547136/pexels-photo-29547136/free-photo-of-vibrant-citrus-cake-with-pomegranate-garnish.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { name: 'Croissant', price: 89, image: 'https://media.istockphoto.com/id/1001971972/photo/breakfast-with-croissants-coffee-orange-juice-and-berries.jpg?b=1&s=612x612&w=0&k=20&c=EBa_Qz-djd9oR-q05TaEEhvm6JDfPJ7Qq-HNyT53Cck=' },
+            { name: 'Churros', price: 89, image: 'https://media.istockphoto.com/id/865434704/photo/churros-with-sugar-and-chocolate-sauce.jpg?b=1&s=612x612&w=0&k=20&c=sAoI__V1XqL6HlAIZ9zIKXsF0IGAFCLqxqc8-lQ1-x0=' },
+            
+        ];
+
+        let total = 0;
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function updateTotal(amount) {
+            total += amount;
+            document.getElementById('total').innerText = total;
+        }
+
+        function addItem(name, price) {
+            updateTotal(price);
+            addToCart(name, price);
+        }
+
+        function removeItem(price) {
+            if (total > 0) updateTotal(-price);
+        }
+
+        function loadItems() {
+            const container = document.getElementById('items');
+            foodItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>Price: ₹${item.price}</p>
+                    <div class="controls">
+                        <button class="add" onclick="addItem('${item.name}', ${item.price})">+</button>
+                        <button class="remove" onclick="removeItem(${item.price})">-</button>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+        loadItems();
+
+        function addToCart(name, price) {
+            let itemIndex = cart.findIndex(item => item.name === name);
+            
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            
+            localStorage.setItem("cart", JSON.stringify(cart));
+            showCartMessage();
+        }
+
+        function showCartMessage() {
+            const message = document.getElementById('cart-message');
+            const goToCartBtn = document.getElementById('go-to-cart');
+            message.style.display = 'block';
+            goToCartBtn.style.display = 'block';
+            setTimeout(() => { message.style.display = 'none'; }, 2000);
+        }
+
+        function redirectToCart() {
+            window.location.href = 'chart.html';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let itemButtons = document.querySelectorAll(".add-to-cart");
+
+    itemButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            let item = {
+                name: this.dataset.name,
+                price: parseFloat(this.dataset.price),
+                image: this.dataset.image
+            };
+
+            let existingItem = cart.find(cartItem => cartItem.name === item.name);
+
+            if (!existingItem) {
+                cart.push(item);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`${item.name} added to cart!`);
+            } else {
+                alert(`${item.name} is already in the cart.`);
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

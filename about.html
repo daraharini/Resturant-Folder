@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Grup 'N' Go</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Background Video Styling */
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            opacity: 0.5; /* Adjust transparency */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        header {
+            background: #ff5733;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            background: #ffbd69;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 10px 15px;
+        }
+
+        .about-section {
+            padding: 50px;
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .about-heading {
+            font-style: italic;
+            font-size: 30px;
+            text-align: left;
+        }
+
+        .about-content {
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        /* Image Hover Effects */
+.about-images img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+.about-images img {
+    filter: grayscale(50%) blur(2px); /* Makes image slightly gray and blurred */
+}
+
+.about-images img:hover {
+    filter: grayscale(0%) blur(0px); /* Restores original color and sharpness */
+}
+
+
+/* When hovering over an image */
+.about-images img:hover {
+    transform: scale(1.2) rotate(3deg); /* Slight rotation and zoom */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow effect */
+    filter: brightness(110%) contrast(105%); /* Boost colors for a richer look */
+}
+
+
+        .founder-message {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .font-size{
+            font-size: 35px;
+            color: rgb(9, 9, 9);
+            font-style: bold;
+        }
+        .font{
+            font-size:20px ;
+            font-style: bold;
+        }
+        .photo{
+            border-radius: 13px;
+            height: 12px;
+            width: 12px;
+        }
+        .animated-image {
+        width: 200px;  /* Adjust size */
+        height: 200px;  /* Keep it square for circular effect */
+        border-radius: 50%; /* Makes it circular */
+        overflow: hidden;
+        border: 5px solid #ff5733; /* Optional: Adds a border */
+        transition: transform 0.5s ease-in-out;
+       }
+     animated-image:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    }
+     /* Founder’s Message Box */
+     .founder-message {
+        background-color: rgba(51, 173, 255, 0.8); /* Light orange background with transparency */
+        color: white; /* White text for contrast */
+        padding: 15px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 30px auto;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    }
+
+    /* Hover Effect */
+    .founder-message:hover {
+        transform: scale(1.1); /* Slightly enlarges */
+        box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        background-color: #ff5733; /* Brighter orange */
+    }
+
+    </style>
+</head>
+<body>
+  
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="videos/vecteezy_cybersecurity-and-privacy-concepts-to-protect-data-lock_14441862.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+    <header>
+        Grup 'N' Go
+    </header>
+
+   
+    <section class="about-section">
+        <h2 class="about-heading">A Legacy of Over 15 Years</h2>
+        <p class="about-content">
+            Grab and Go has been dedicated to honouring the essence of tradition through our food. What started as a small family endeavour has grown into a global culinary destination, known for preserving the true essence of Hyderabadi cuisine.
+            <br><br>
+            At Grab and Go, we are not just about serving food; we are about crafting experiences that stay with you. Our world-famous Haleem, recognized and savoured by food lovers worldwide, is a testament to our commitment to quality and authenticity.
+            <br><br>
+            Our success lies in the careful attention to detail in every dish, from our iconic Biryani to our extensive menu of traditional delicacies. Each recipe is a piece of our heritage, passed down through generations and lovingly prepared to ensure that every bite is a journey into the heart of Hyderabadi culinary tradition.
+        </p>
+        <br><br>
+        <!-- Famous Food Item Section -->
+<div style="display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 900px; margin: auto;">
+    <p class="font" style="max-width: 500px; text-align: justify;">
+        <i class="font-size">Famous Food Item</i> <br><br>
+        The famous food item is Chicken Biryani that is crafted with meticulous attention to detail and generations-old recipes.
+        Our Haleem is a symphony of flavours, blending tender meat with wholesome grains and aromatic spices. 
+        Slow-cooked to perfection, each spoonful is a journey through the rich heritage of Hyderabadi cuisine, 
+        leaving a lingering taste that beckons you back for more.
+    </p>
+    <img src="images/chicken-biryani-kerala-style-chicken-dhum-biriyani-made-using-jeera-rice-spices-arranged_667286-4612.avif"
+         alt="Chicken Biryani" class="animated-image"
+         style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+</div>
+
+        <h1>Images of the Restaurant</h1>
+         <div class="about-images">
+            <h></h><img src="images/pexels-buraninyabancisi-45080208-11725803.jpg" alt="Restaurant Interior">
+            <img src="images/pexels-eugenia-remark-5767088-18978091.jpg" >
+            <img src="images/pexels-calvinseng-31372786.jpg" alt="Restaurant Ambience">
+            <img src="images/pexels-prosper-buka-1289782307-28736727.jpg" alt="Restaurant serving">
+            <img src="images/pexels-miriam-alonso-7592334.jpg" alt="Restaurant Maintenence">
+            <img src="images/pexels-marlein-16021268.jpg" alt="Restaurant food Maintenence">
+
+        </div>
+        <p class="founder-message">
+            <strong>Founder’s Message</strong><br>
+            We embarked on a humble journey with a simple dream – to share the flavors of Hyderabad with the world.
+        </p>
+    </section>
+</body>
+</html>
